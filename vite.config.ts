@@ -27,8 +27,14 @@ export default defineConfig(({command}) => {
             if (fs.existsSync(indexPath)) {
               fs.copyFileSync(indexPath, notFoundPath);
             }
+            // Also mirror to docs/ for users deploying via GitHub Pages branch: main /docs
+            const docsPath = path.resolve(__dirname, 'docs');
+            if (!fs.existsSync(docsPath)) {
+              fs.mkdirSync(docsPath, { recursive: true });
+            }
+            fs.cpSync(distPath, docsPath, { recursive: true });
           } catch (e) {
-            console.warn('Could not copy 404.html for GitHub Pages:', e);
+            console.warn('Could not mirror docs/ for GitHub Pages:', e);
           }
         },
       },

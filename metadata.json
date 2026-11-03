@@ -1,0 +1,6 @@
+{
+  "name": "AI Skill Architect",
+  "description": "Transform short natural-language descriptions into complete, professional, validated Claude Skills and modular packages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
